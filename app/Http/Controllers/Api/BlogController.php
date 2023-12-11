@@ -24,7 +24,7 @@ class BlogController extends Controller
                 })->select('blogs.*')->addFavorite()->orderBy('id','DESC');
 
                 if($request->most_liked == 1){
-                    $data = Blog::withCount('likes')->orderBy('likes_count', 'desc');
+                    $data = Blog::select('*')->addFavorite()->withCount('likes')->orderBy('likes_count', 'desc');
                 }
                 $result = paginate($data,($request->page ?? null));
                 return ApiResponse($result);
