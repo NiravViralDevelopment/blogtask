@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::middleware('auth:sanctum')->group( function () {
-    Route::POST('get_users','Api\LoginController@get_users')->name('get_users');
     //blogs
     Route::POST('get_blogs','Api\BlogController@get_blogs')->name('get_blogs');
     Route::POST('create_blog','Api\BlogController@create_blog')->name('create_blog');

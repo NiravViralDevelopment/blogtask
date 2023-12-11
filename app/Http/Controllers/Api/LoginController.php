@@ -25,20 +25,4 @@ class LoginController extends Controller
             return ApiResponse($error_msg);
         }
     }
-
-    public function get_users(request $request){
-        try
-        {
-            DB::beginTransaction();
-            $data = Auth::user();
-            $result = paginate($data,($request->page ?? null));
-            return ApiResponse($result);
-        }catch (\Exception $e){
-            $error_msg =  error_msg();
-            return ApiResponse($error_msg);
-        }catch (\Throwable $e){
-            $error_msg =  error_msg();
-            return ApiResponse($error_msg);
-        }
-    }
 }

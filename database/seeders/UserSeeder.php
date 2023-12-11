@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Blog;
 
 class UserSeeder extends Seeder
 {
@@ -13,17 +14,19 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::factory()->count(5)->create(); //factory
+        Blog::factory()->count(10)->create();
+
         $users =[[
                 'name' => 'viralnew1',
-                'email' => 'viral1@gmail.com',
+                'email' => 'viral11@gmail.com',
                 'password' => bcrypt('123456'),
             ],[
                 'name' => 'disma1',
-                'email' => 'disma1@gmail.com',
+                'email' => 'disma11@gmail.com',
                 'password' => bcrypt('123456'),
             ],[
                 'name' => 'ketan1',
-                'email' => 'ketan1@gmail.com',
+                'email' => 'ketan11@gmail.com',
                 'password' => bcrypt('123456'),
             ]];
         User::insert($users);
